@@ -9,27 +9,45 @@
 
     </style>
     <script>
-        function gamestart(imgNum) {
-            var img_tag = document.getElementById("user");
-            img_tag.src = "./images/" + imgNum + ".jpg";
-        }
 
         /* var com = random.nextInt(10000) % 3 + 1;
         var randomNum = parseInt(Math.random()*45)+1; */
-        function game() {
+        function game(user) {
             var img_tag = document.getElementById("com");
             var com = parseInt(Math.random() * 3) + 1;
+
+            switch (com) {
+                case 1: img_tag.src = "./images/scissors.jpg"; break;
+                case 2: img_tag.src = "./images/rock.jpg"; break;
+                case 3: img_tag.src = "./images/paper.jpg"; break;
+            }
+            switch (user) {
+                case 'scissors': user = 1; break;
+                case 'rock': user = 2; break;
+                case 'paper': user = 3; break;
+            }
             if (!(user < 1 || user > 3)) {
                 switch (user - com) {
                     case 0:
-                       // System.out.println("비겼습니다"); break;
+                        console.log("비겼습니다.");
+                        document.getElementById("result").innerText = "비겼습니다."; break;
+                    // System.out.println("비겼습니다"); break;
                     case 1: case -2:
-                        //System.out.println("이겼습니다"); break;
+                        console.log("이겼습니다.");
+                        document.getElementById("result").innerText = "이겼습니다."; break;
+                    //System.out.println("이겼습니다"); break;
                     case -1: case 2:
-                        System.out.println("졌습니다"); break;
+                        console.log("졌습니다.");
+                        document.getElementById("result").innerText = "졌습니다."; break;
+                    //System.out.println("졌습니다"); break;
                 }
-            } 
-        }          
+            }
+        }
+        function gamestart(imgNum) {
+            var img_tag = document.getElementById("user");
+            img_tag.src = "./images/" + imgNum + ".jpg";
+            game(imgNum);
+        }
     </script>
 </head>
 
@@ -51,9 +69,8 @@
         </tr>
 
         <tr>
-            <td colspan="2" style="border: 1px double black;height: 100px;font-size: 3em;
-            color: red;">
-                졌습니다</td>
+            <td id="result" colspan="2" style="border: 1px double black;height: 100px;font-size: 3em;
+            color: red;"></td>
         </tr>
     </table>
     <button onclick="gamestart('scissors');">가위
