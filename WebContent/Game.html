@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script>
+        function gamestart(imgNum) {
+            var img_tag = document.getElementById("user");
+            img_tag.src = "./images/" + imgNum + ".jpg";
+        }
+
+        /* var com = random.nextInt(10000) % 3 + 1;
+        var randomNum = parseInt(Math.random()*45)+1; */
+        function game() {
+            var img_tag = document.getElementById("com");
+            var com = parseInt(Math.random() * 3) + 1;
+            if (!(user < 1 || user > 3)) {
+                switch (user - com) {
+                    case 0:
+                       // System.out.println("비겼습니다"); break;
+                    case 1: case -2:
+                        //System.out.println("이겼습니다"); break;
+                    case -1: case 2:
+                        System.out.println("졌습니다"); break;
+                }
+            } 
+        }          
+    </script>
+</head>
+
+<body>
+    <h1>가위바위보게임</h1>
+    <table style="border: 3px double black; width: 800; height: 300px;padding: 5px;">
+        <tr>
+            <td style="border: 1px double black; width: 400px; 
+            height: 100px;font-size: 3em;"> 컴퓨터 </td>
+            <td style="border: 1px double black;  width: 400px; font-size: 3em;">나</td>
+        </tr>
+
+        <tr>
+            <td style="border: 1px double black;height: 400px;">
+                <img id="com" src="./images/start.png" alt="start"></td>
+
+            <td style="border: 1px double black;height: 400px;">
+                <img id="user" src="./images/start.png"></td>
+        </tr>
+
+        <tr>
+            <td colspan="2" style="border: 1px double black;height: 100px;font-size: 3em;
+            color: red;">
+                졌습니다</td>
+        </tr>
+    </table>
+    <button onclick="gamestart('scissors');">가위
+        <button onclick="gamestart('rock');">바위
+            <button onclick="gamestart('paper');">보
+
+
+</body>
+
+</html>
