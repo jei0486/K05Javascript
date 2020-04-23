@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>updowngame</title>
     <style>
-        #usernum{
-           width: 70px;
+        #usernum {
+            width: 70px;
         }
     </style>
     <script>
@@ -17,31 +17,35 @@
         var userNum;
 
         function game() {
-            
-                var computerNum = parseInt((Math.random()*100)+1); 
-                console.log(computerNum);
-                userNum = document.getElementById("usernum").value; 
-                image = document.getElementById("init"); 
-                
-                    if (userNum > computerNum) { // 성공실패
-                        console.log("Down, 더 낮은 숫자입니다.");
-                        image.src = "./images/down.jpg"
-                    }
-                    else if (userNum < computerNum) {
-                        console.log("Up, 더 높은 숫자입니다.");
-                        image.src = "./images/up.jpg"
-                    }
-                    else if(userNum == computerNum){
-                        console.log("일치합니다.");
-                        console.log(i + "번 안에 성공");
-                        image.src = "./images/answer.jpg"
-                        forEnd = true;
-                    }	
-                //7번만에 맞추지 못한 경우...
-                if (forEnd == false) {
-                    window.alert("시도횟수가 초과하였습니다. 게임을 재시작합니다");
-                }
+
+            var computerNum = parseInt((Math.random() * 100) + 1);
+            console.log(computerNum);
+            userNum = document.getElementById("usernum").value;
+            image = document.getElementById("init");
+
+            if (userNum < 0 && userNum >= 100) {
+                alert("1~100사이의 정수를 입력해주세요");
+                return;
             }
+            if (userNum > computerNum) { // 성공실패
+                console.log("Down, 더 낮은 숫자입니다.");
+                image.src = "./images/down.jpg"
+            }
+            else if (userNum < computerNum) {
+                console.log("Up, 더 높은 숫자입니다.");
+                image.src = "./images/up.jpg"
+            }
+            else if (userNum == computerNum) {
+                console.log("일치합니다.");
+                console.log(i + "번 안에 성공");
+                image.src = "./images/answer.jpg"
+                forEnd = true;
+            }
+            //7번만에 맞추지 못한 경우...
+            if (forEnd == false) {
+                window.alert("시도횟수가 초과하였습니다. 게임을 재시작합니다");
+            }
+        }
     </script>
 </head>
 
@@ -53,12 +57,12 @@
     <form action="" style="font-size: 1em; font-weight: bold;">
         시도횟수 : <span id="gamecount" style="font-size: 5em;">0</span> 회 <br><br>
 
-        숫자입력 : 
-        <input type="number" id="usernum"> 
+        숫자입력 :
+        <input type="number" id="usernum">
         <input type="button" value="확인" onclick="game();"> <br><br><br>
     </form>
-    
-    <img src = "./images/updowngame.jpg" id="init" alt="없음" width="300" height="300">
+
+    <img src="./images/updowngame.jpg" id="init" alt="없음" width="300" height="300">
 
 
 
