@@ -7,23 +7,32 @@
 <title>RegiStep03.jsp</title>
 </head>
 <body>
-<%request.setCharacterEncoding("UTF-8"); %>
+<%request.setCharacterEncoding("UTF-8");
+String id = request.getParameter("id");
+String pw = request.getParameter("pw");
+String email = request.getParameter("email");
+String sex = request.getParameter("sex");
+%>
     <div>
         <div style="display: inline-block; margin-right: 50px; margin-top:20px; "> 아이디 </div>
+        <%=id %>
     </div>
 
 
     <div>
         <div style="display: inline-block; margin-right: 34px; margin-top:20px; "> 비밀번호 </div>
+         <%=pw %>
     </div>
 
     <div>
         <div style="display: inline-block; margin-right: 50px; margin-top:20px; "> 이메일 </div>
+         <%=email %>
     </div>
 
 
     <div>
         <div style="display: inline-block; margin-right: 60px; margin-top:20px;">성별</div>
+         <%=sex %>
     </div>
 
     <div>
