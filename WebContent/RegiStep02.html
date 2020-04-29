@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegiStep02.html</title>
+    <script>
+
+        
+
+        function next() {
+            var id = document.getElementById("id").value;
+            var pw = document.getElementById("pw").value;
+            var email = document.getElementById("email").value;
+
+            if (email == "") {
+                alert("이메일을 입력해주세요");
+                return false;
+            }
+            if (id == "") {
+                alert("아이디를 입력해주세요");
+                return false;
+            }
+            if (pw == "") {
+                alert("비밀번호를 입력해주세요");
+                return false;
+            }
+            if(emailcheck()==false){
+            	return false;
+            }
+            return true;
+            
+        }
+
+        function emailcheck() {
+
+            var emailArr = document.getElementById("email").value;
+            if (emailArr.indexOf("@") == -1) {
+                alert("이메일 형식에 맞게 입력해주세요. 엣(@)");
+                return false;
+            }
+            if (emailArr.indexOf(".") == -1) {
+                alert("이메일 형식에 맞게 입력해주세요. 닷(.)");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+
+
+    <form action="./RegiStep03.jsp" name="RegiStep02" onsubmit="return next();">
+
+        <div>
+            <div style="display: inline-block; margin-right: 50px; margin-top:20px; "> 아이디 </div>
+            <div style="display: inline-block;"> <input type="text" size="33" name="id" id="id"> </div>
+        </div>
+
+        <div>
+            <div style="display: inline-block; margin-right: 34px; margin-top:20px; "> 비밀번호 </div>
+            <div style="display: inline-block;"> <input type="password" size="33" name="pw" id="pw"> </div>
+        </div>
+
+        <div>
+            <div style="display: inline-block; margin-right: 50px; margin-top:20px; "> 이메일 </div>
+            <div style="display: inline-block;"> <input type="text" size="33" name="email" id="email"> </div>
+        </div>
+
+
+        <div>
+            <div style="display: inline-block; margin-right: 60px; margin-top:20px;">성별</div>
+            <div style="display: inline-block;">
+                <label>
+                    <input type="radio" name="sex" value="남자" />남자
+                </label>
+                <label>
+                    <input type="radio" name="sex" value="여자" checked />여자
+                </label>
+            </div>
+        </div>
+
+        <div>
+            <button type="button" style="width: 100px; margin-left: 100px; margin-top:50px;" onclick="location.href='./RegiStep01.html'"
+            onmouseout="this.style.backgroundColor='white';">
+                이전</button>
+
+            <button type="submit" style="width: 100px;" onmouseover="this.style.backgroundColor='#e5e5e5';"
+            onmouseout="this.style.backgroundColor='white';">
+                다음</button>
+        </div>
+    </form>
+</body>
+
+</html>

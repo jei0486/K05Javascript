@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+
+
+    <script>
+        var strLength = "";
+        function fnJuminFocus(obj) {
+            strLength = obj.value.length;
+            if (strLength >= 6) {
+                document.getElementById("ju2").focus();
+            }
+
+        }
+        function commonFocusmove(obj, mLength, next_obj) {
+            strLength = obj.value.length;
+            if (strLength >= mLength) {
+                document.getElementById(next_obj).focus();
+            }
+        }
+
+        function next() {
+            var juStart = document.getElementById("ju1").value.length;
+            var juLast = document.getElementById("ju2").value.length;
+            var check = document.getElementById("username").value.length;
+
+            if(juStart!=6){
+                alert("6자리를 입력해주세요");
+            }
+            if(juLast != 7){
+                alert("7자리를 입력해주세요");
+            }
+            if(check == ""){
+                alert("이름을 입력해주세요");
+            }
+
+            window.location.href = "./RegiStep02.html";
+
+        }
+    </script>
+    <style>
+    </style>
+</head>
+
+<body>
+
+    <div style="border: 1px gray solid; width: 400px; height: 300px; margin-left: 100px; margin-top: 100px;">
+
+        <div style="border: 1px gray solid; width: 400px;">
+            <div style="display: inline-block;">실명확인</div>
+
+            <button class="btn btn-outline-secondary "
+                style="margin-left: 200px; height: 25px; background-color: lightskyblue; " type="submit"
+                onmouseover="this.style.backgroundColor='#e5e5e5';"
+                onmouseout="this.style.backgroundColor='lightskyblue';">-
+                <button class="btn btn-outline-secondary" style="height: 25px; background-color:  lightskyblue;"
+                    type="submit" onmouseover="this.style.backgroundColor='#e5e5e5';"
+                    onmouseout="this.style.backgroundColor='lightskyblue';">ㅁ
+                    <button class="btn btn-outline-secondary" style="height: 25px; background-color:  red;"
+                        type="submit" onmouseover="this.style.backgroundColor='#e5e5e5';"
+                        onmouseout="this.style.backgroundColor='red';">X
+        </div>
+        <form action="" name="RegiStep01">
+        <div>
+            <div style="display: inline-block;margin-top: 50px; margin-left: 10px;"> 주민번호</div>
+            <div style="display: inline-block;">
+                <input type="text" id="ju1" size="10" maxlength="6" onkeyup="fnJuminFocus(this);">
+            </div>
+            <div style="display: inline-block;"> -</div>
+            <div style="display: inline-block; margin-top:10px;">
+                <input type="text" id="ju2" size="15" maxlength="7" onkeyup="commonFocusmove(this,7,'username');"></div>
+        </div>
+
+        <div>
+            <div style="display: inline-block; margin-right: 32px; margin-top:20px; margin-left: 10px;"> 이름 </div>
+            <div style="display: inline-block;"> <input type="text" size="33" id="username"> </div>
+        </div>
+
+        <div>
+            <div style="margin-left: 240px; margin-top:50px;width: 50px;">
+                <button type="button" style="width: 100px; background-color: white;" 
+                onclick="next();" onmouseover="this.style.backgroundColor='#e5e5e5';"
+                onmouseout="this.style.backgroundColor='white';" >
+                    다음</button>
+            </div>
+        </div>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
